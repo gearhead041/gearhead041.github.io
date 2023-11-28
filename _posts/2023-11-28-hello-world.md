@@ -1,5 +1,5 @@
 ---
-title: "Post: Hello World"
+title: "Hello World"
 last_modified_at: 2023-11-28 14:55
 categories:
   - Blog
