@@ -71,7 +71,7 @@ author:
       url: "https://github.com/gearhead041"
     - label: "Instagram"
       icon: "fab fa-fw fa-instagram"
-      url: "https://instagram.com/gearhead041"
+      url: "https://instagram.com/gearhead_041"
 
 footer:
   links:
@@ -83,7 +83,7 @@ footer:
       url: "https://github.com/gearhead041"
     - label: "Instagram"
       icon: "fab fa-fw fa-instagram"
-      url: "https://instagram.com/gearhead041"
+      url: "https://instagram.com/gearhead_041"
 
 defaults:
   # _posts
