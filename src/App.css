@@ -1,11 +1,12 @@
 :root {
-  --content-width: 50vw;
+  --headers-width: 50vw;
   --regular-font-size: 1.5rem;
+  cursor: crosshair;
 }
 
 @media screen and (max-width: 768px) {
   :root {
-    --content-width: 90vw;
+    --headers-width: 90vw;
     --regular-font-size: 1.2rem;
   }
 
@@ -13,34 +14,41 @@
 
 body {
   background-color: #282c34;
-
-  font-family: "Raleway", sans-serif;
+  font-family: "Old Standard TT", sans-serif;
   color: white;
+}
+
+p {
+  margin: 0;
+  padding: 0;
 }
 
 .header {
   display: flex;
   place-items: center;
   flex-direction: column;
-  width: var(--content-width);
+  font-family: "Raleway", sans-serif;
+  width: var(--headers-width);
   flex-wrap: wrap;
   margin-left: auto;
   margin-right: auto;
-  padding: 2% 0%;
+  padding: 4% 2% 0% 0%;
 }
 
 .subHeader {
-  padding-top: 2%;
-  width: var(--content-width);
+  padding: 3% 0.8rem;
+  margin-bottom: 5%;
+  width: var(--headers-width);
   display: flex;
   flex-direction: row;
   margin-left: auto;
   margin-right: auto;
   justify-content: space-between;
+  border-bottom: 2px solid grey;
 }
 
 .title {
-  font-size: 5rem;
+  font-size: calc(var(--regular-font-size) + 3rem);
   line-height: 1.1;
   align-self: center;
   text-transform: uppercase;
@@ -61,16 +69,45 @@ body {
 }
 
 .blurb {
-  width: var(--content-width);
+  width: var(--headers-width);
   margin-left: auto;
   margin-right: auto;
-  line-height: 1.3;
-  font-size: calc(var(--regular-font-size) + 0.5rem);
+  line-height: 1.5;
+  font-size: calc(var(--regular-font-size) + 0.2rem);
+  overflow: hidden;
+  opacity: 0;
+  animation: slideUp 2s forwards;
 }
 
-.signature {
-  font-size: 1.2em;
-  font-weight: 600;
-  color: rgba(255, 255, 255, 0.6);
-  font-style: italic;
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.logos {
+  padding-top: 0.4rem;
+  padding-bottom: 1.5rem;
+  padding-left: 0.8rem;
+  display: flex;
+  flex-direction: row;
+  margin-right: 82%;
+}
+
+.logos > a {
+  padding-right: 1.2rem;
+}
+
+.gmailLogo {
+  padding-top: 2px;
+}
+
+svg {
+  color: white;
 }
