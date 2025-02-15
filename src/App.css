@@ -111,3 +111,39 @@ p {
 svg {
   color: white;
 }
+
+.scrollContainer {
+  padding-top: 2rem;
+  width: var(--headers-width);
+  margin: auto;
+  overflow: hidden;
+  white-space: nowrap;
+  display: flex;
+  position: relative;
+}
+
+.scrollContent {
+  display: flex;
+  gap: 2rem;
+  animation: scroll 10s linear infinite;
+  width: max-content;
+}
+
+.scrollContent::after {
+  content: "";
+  display: flex;
+  gap: 2rem;
+}
+
+.scrollContent > * {
+  flex: 0 0 auto;
+}
+
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}

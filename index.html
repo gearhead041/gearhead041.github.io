@@ -15,7 +15,12 @@
 
 <body>
   <div id="root"></div>
-  <script type="module" src="/src/main.tsx"></script>
 </body>
+<script type="module" src="/src/main.tsx"></script>
+<script type="text/javascript" defer>
+  const scrollContent = document.querySelector('.scrollContent');
+  scrollContent.innerHTML += scrollContent.innerHTML; 
+  console.log('End of the script');
+</script>
 
 </html>

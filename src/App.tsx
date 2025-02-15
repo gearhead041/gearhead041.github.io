@@ -1,5 +1,17 @@
 import "./App.css";
-import { GitHubLogo, GmailLogo, LinkedInLogo } from "./svg_logos";
+import {
+  GitHubLogo,
+  GmailLogo,
+  GraphqlLogo,
+  LinkedInLogo,
+  NestJsLogo,
+  NodeJsLogo,
+  PythonLogo,
+  TypeScriptLogo,
+} from "./svg_logos";
+
+//TODO create components for the programming languages and frameworks with logos
+// add lost of projects -> conduit, graphql, food delivery app in .NET,
 
 function App() {
   const date = new Date();
@@ -14,7 +26,7 @@ function App() {
         <div className="logos">
           <GitHubLogo link="https://github.com/gearhead041" />
           <GmailLogo link="mailto:favouradetoun@gmail.com" />
-          <LinkedInLogo link="https://www.linkedin.com/in/toluadetoun/"/>
+          <LinkedInLogo link="https://www.linkedin.com/in/toluadetoun/" />
         </div>
       </div>
       <div className="blurb">
@@ -24,6 +36,16 @@ function App() {
           solutions.
         </p>
       </div>
+      <div className="scrollContainer">
+        <div className="scrollContent">
+          <NestJsLogo size={64} />
+          <TypeScriptLogo size={64} />
+          <NodeJsLogo size={64} />
+          <PythonLogo size={64} />
+          <GraphqlLogo size={64} />
+        </div>
+      </div>
+
     </>
   );
 }
