@@ -108,9 +108,13 @@ p {
   padding-top: 2px;
 }
 
+.skills {
+  font-size: var(--regular-font-size);
+}
 svg {
   color: white;
 }
+
 
 .scrollContainer {
   padding-top: 2rem;
@@ -119,26 +123,28 @@ svg {
   overflow: hidden;
   white-space: nowrap;
   display: flex;
-  position: relative;
+  padding-bottom: 2rem;
 }
 
 .scrollContent {
   display: flex;
   gap: 2rem;
-  animation: scroll 10s linear infinite;
-  width: max-content;
+  animation: scroll 15s linear infinite;
 }
 
 .scrollContent::after {
   content: "";
   display: flex;
-  gap: 2rem;
+  gap: 3rem;
 }
 
-.scrollContent > * {
-  flex: 0 0 auto;
+.scrollContent > svg:hover {
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 10px rgba(0, 255, 255, 0.8));
 }
-
+.scrollContainer:hover .scrollContent {
+  animation-play-state: paused;
+}
 @keyframes scroll {
   from {
     transform: translateX(0);

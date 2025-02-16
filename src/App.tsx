@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import "./App.css";
 import {
   GitHubLogo,
@@ -15,6 +16,13 @@ import {
 
 function App() {
   const date = new Date();
+  const scrollRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (scrollRef.current) {
+      scrollRef.current.innerHTML += scrollRef.current.innerHTML; // Duplicate content
+    }
+  }, []);
+
   return (
     <>
       <div className="header">
@@ -36,8 +44,11 @@ function App() {
           solutions.
         </p>
       </div>
+      <div className="header skills">
+        Skills/TechStack
+      </div>
       <div className="scrollContainer">
-        <div className="scrollContent">
+        <div className="scrollContent" ref={scrollRef}>
           <NestJsLogo size={64} />
           <TypeScriptLogo size={64} />
           <NodeJsLogo size={64} />
@@ -45,7 +56,6 @@ function App() {
           <GraphqlLogo size={64} />
         </div>
       </div>
-
     </>
   );
 }
