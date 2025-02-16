@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import "./App.css";
 import {
+  GearLogo,
   GitHubLogo,
   GmailLogo,
   GraphqlLogo,
@@ -54,6 +55,14 @@ function App() {
           <NodeJsLogo size={64} />
           <PythonLogo size={64} />
           <GraphqlLogo size={64} />
+        </div>
+      </div>
+      <div className="projectContainer">
+        <div className="gearContainer">
+          <GearLogo />
+        </div>
+        <div className="projectItemsContainer">
+          Hello word
         </div>
       </div>
     </>
