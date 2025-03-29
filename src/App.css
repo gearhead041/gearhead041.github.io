@@ -1,13 +1,14 @@
 :root {
   --headers-width: 50vw;
   --regular-font-size: 1.5rem;
+  --xxlarge-font-size: 6rem;
+  --large-font-size: 3rem;
   --color: black;
   --background-color: rgb(254, 253, 206);
   --picture-height: 20rem;
   --blurb-width: 25rem;
   --blurb-displace: 0rem;
   --pic-radius: 5rem;
-
   cursor: crosshair;
 }
 
@@ -20,12 +21,19 @@
 
 @media screen and (max-width: 768px) {
   :root {
-    --headers-width: 100vw;
-    --regular-font-size: 1.2rem;
-    --picture-height: 18rem;
+    --headers-width: 95vw;
+    --regular-font-size: 1rem;
+    --large-font-size: 2rem;
+    --xxlarge-font-size: 3rem;
+    --picture-height: 14rem;
     --blurb-width: 10rem;
     --blurb-displace: 1.5rem;
     --pic-radius: 2.5rem;
+  }
+
+  #root {
+    /* place-self: center; */
+    margin-left: 0.05rem;
   }
 
   .profileSection {
@@ -33,15 +41,21 @@
     place-items: center;
     margin-left: 2rem !important;
   }
-  
-  /*TODO maybe I fix this maybe I don't ...*/
+
+
   .scrollContainer {
     margin-left: 2rem !important;
+  }
+
+  .logos {
+    margin-left: 2rem;
   }
 
   .skills {
     margin-left: 2rem !important;
   }
+
+
   .blurb {
     /* Text over flow */
     display: -webkit-box;
@@ -60,7 +74,9 @@ body {
   font-family: "Old Standard TT", sans-serif;
   color: var(--color);
   font-size: var(--regular-font-size);
-  margin: auto;
+  margin: 0;
+  padding: 0;
+  width: 100%;
 }
 
 p {
@@ -76,8 +92,8 @@ p {
   font-family: "News Cycle", sans-serif;
   width: var(--headers-width);
   flex-wrap: wrap;
-  margin-left: auto;
-  margin-right: auto;
+  /* margin-left: auto;
+  margin-right: auto; */
   padding-top: 4rem;
 }
 
@@ -85,6 +101,7 @@ p {
   padding: 0.8rem;
   margin-bottom: 0.2rem;
   width: var(--headers-width);
+  font-size: var(--regular-font-size);
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -92,7 +109,7 @@ p {
 }
 
 .title {
-  font-size: calc(var(--regular-font-size) + 4.5rem);
+  font-size: var(--xxlarge-font-size);
   line-height: 1.1;
   align-self: center;
   text-transform: uppercase;
@@ -109,7 +126,6 @@ p {
 
 .jobTitle {
   align-self: flex-start;
-  font-size: var(--regular-font-size);
 }
 
 .thickRule {
@@ -127,7 +143,7 @@ p {
   flex-wrap: wrap;
   width: var(--headers-width);
   place-self: center;
-  margin: auto;
+  /* margin: auto; */
 }
 
 
@@ -159,14 +175,13 @@ p {
 .education {
   width: var(--headers-width);
   padding-top: 2rem;
-  padding-bottom: 2rem;
   display: flex;
   place-items: center;
   gap: 2rem;
 }
 
 .eduTitle {
-  font-size: calc(var(--regular-font-size) + 6rem);
+  font-size: var(--xxlarge-font-size);
   margin-top: 0;
   width: 40%;
   padding-right: 0.5rem;
@@ -212,7 +227,7 @@ p {
   padding-left: 0.8rem;
   display: flex;
   flex-direction: row;
-  margin-right: 82%;
+  /* margin-right: 82%; */
 }
 
 .logos>a {
@@ -224,8 +239,11 @@ p {
 }
 
 .skills {
-  font-size: calc(var(--regular-font-size) + 1.5rem);
+  font-size: var(--large-font-size);
   font-weight: 500;
+  padding-top: 2rem;
+  font-weight: 800;
+  text-transform: capitalize;
 }
 
 svg {
@@ -240,7 +258,6 @@ svg {
   overflow: hidden;
   white-space: nowrap;
   display: flex;
-  padding-bottom: 2rem;
 }
 
 .scrollContent {
@@ -294,7 +311,7 @@ svg {
 }
 
 #projectsTitle {
-  font-size: calc(var(--regular-font-size) + 1.5rem);
+  font-size: var(--large-font-size);
   padding-bottom: 0.5rem;
   border-bottom: 2px solid var(--color);
 }
