@@ -5,18 +5,18 @@
   --background-color: rgb(254, 253, 206);
   --picture-height: 20rem;
   --blurb-width: 25rem;
-  --blurb-displace: 5rem;
+  --blurb-displace: 0rem;
   --pic-radius: 5rem;
 
   cursor: crosshair;
 }
 
-@media(prefers-color-scheme: dark) {
+/* @media(prefers-color-scheme: dark) {
   :root {
-    --color: white;
+    --color: rgb(242, 240, 133);
     --background-color: black;
   }
-}
+} */
 
 @media screen and (max-width: 768px) {
   :root {
@@ -50,6 +50,7 @@ body {
   font-family: "Old Standard TT", sans-serif;
   color: var(--color);
   font-size: var(--regular-font-size);
+  margin: auto;
 }
 
 p {
@@ -91,7 +92,7 @@ p {
 }
 
 .date {
-  color: grey;
+  color: var(--color);
   font-size: var(--regular-font-size);
   align-self: flex-end;
 }
@@ -116,6 +117,7 @@ p {
   flex-wrap: wrap;
   width: var(--headers-width);
   place-self: center;
+  margin: auto;
 }
 
 .profilePic {
@@ -133,6 +135,45 @@ p {
   overflow: hidden;
   opacity: 0;
   animation: slideUp 2s forwards;
+}
+
+.education {
+  width: var(--headers-width);
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  display: flex;
+  place-items: center;
+  gap: 2rem;
+}
+
+.eduTitle {
+  font-size: calc(var(--regular-font-size) + 6rem);
+  margin-top: 0;
+  width: 40%;
+  padding-right: 0.5rem;
+  overflow-wrap: break-word;
+}
+
+.eduEntries {
+  padding-top: 6rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.edu {
+  padding-top: 2rem;
+  line-height: 2.5rem;
+}
+
+.institute {
+  font-weight: bolder;
+  font-size: calc(var(--regular-font-size) + 0.9rem);
+  padding-bottom: 0.3rem;
+}
+
+.schoolyrs {
+  font-style: italic;
+  font-family: "News Cycle", sans-serif;
 }
 
 @keyframes slideUp {
@@ -237,7 +278,7 @@ svg {
 #projectsTitle {
   font-size: calc(var(--regular-font-size) + 1.5rem);
   padding-bottom: 0.5rem;
-  border-bottom: 2px solid grey;
+  border-bottom: 2px solid var(--color);
 }
 
 .project {
@@ -260,6 +301,7 @@ svg {
   font-family: "News Cycle", sans-serif;
 }
 
+
 .projectStack {
   display: flex;
   padding-top: 1.5rem;
@@ -279,6 +321,8 @@ svg {
 .projectLink:hover {
   color: grey;
   text-decoration: none;
+  font-size: var(--regular-font-size);
+
 }
 
 .projectLink:visited {

@@ -12,6 +12,8 @@ import {
 } from "./svg_logos";
 import { Project } from "./Project";
 import { projects } from "./projects";
+import { Education } from "./Education";
+import { education } from "./education.1";
 
 //TODO here's an idea, put stars and quotes above the header
 function App() {
@@ -40,17 +42,27 @@ function App() {
 			</div>
 			<div className="profileSection">
 				<div>
-					<img src="src/assets/headshot.png" alt="A picture of Adetoun Favour" className="profilePic" />
+					<img
+						src="src/assets/headshot.png"
+						alt="A picture of Adetoun Favour"
+						className="profilePic"
+					/>
 				</div>
 				<div className="blurb">
 					<p>
-						Backend developer with experience in building APIs and
-						microservices. Passionate about creating scalable and
-						maintainable software solutions.
+						Backend developer with experience in Data Science.
+						Passionate about creating scalable and maintainable
+						software solutions.
 					</p>
 				</div>
+				<div className="education">
+					<p className="title eduTitle">Education</p>
+					<div className="eduEntries">
+						{education.map(edu => (<Education {...edu}/>))}
+					</div>
+				</div>
 			</div>
-			<div className="header skills">What I Work With</div>
+			<div className="header skills">What I've Worked With</div>
 			<div className="scrollContainer">
 				<div className="scrollContent" ref={scrollRef}>
 					<NestJsLogo size={64} />
@@ -73,3 +85,4 @@ function App() {
 }
 
 export default App;
+

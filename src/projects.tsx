@@ -17,7 +17,7 @@ export const projects: projectParams[] = [
 	},
 	{
 		projectTitle: "Chimoney SDK .NET",
-		description: "A .NET SDK for the Chimoney Payment Platform. Over 600 downloads.",
+		description: "A .NET SDK for the Chimoney Payment Platform. Over 600 downloads to date.",
 		link: "https://github.com/dsccovenantuniversity/Chimoney-SDK-Challenge-Covenant-University/tree/main/SDK%20Submissions/ChimoneyDotNet",
 		stack: ["NET"],
 	},
