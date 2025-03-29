@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import "./App.css";
+import headshot from './assets/headshot.png';
 import {
 	GitHubLogo,
 	GmailLogo,
@@ -43,7 +44,7 @@ function App() {
 			<div className="profileSection">
 				<div>
 					<img
-						src="src/assets/headshot.png"
+						src={headshot}
 						alt="A picture of Adetoun Favour"
 						className="profilePic"
 					/>
