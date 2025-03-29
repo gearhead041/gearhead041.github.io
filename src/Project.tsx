@@ -1,17 +1,7 @@
 import { JSX } from "react";
 import { NestJsLogo, PythonLogo, TypeScriptLogo } from "./svg_logos";
 
-export const projects: projectParams[] = [
-	{
-		projectTitle: "Blog API",
-		description:
-			"A Blog API based on the realworld conduit specification,implemented in NestJS, with JWT authentication and rolebased access. MongoDB and Prisma used as backend",
-		link: "https://github.com/gearhead041/realworld-nestjs-prisma-mongodb",
-		stack: ["NestJs", "Typescript"],
-	},
-];
-
-type projectParams = {
+export type projectParams = {
 	projectTitle: string;
 	description: string;
 	link: string;
@@ -31,14 +21,12 @@ export function Project(params: projectParams) {
 				<div className="projectText">
 					<p className="projectTitle">{params.projectTitle}</p>
 					<p className="projectDescription">
-						A Blog API based on the realworld conduit specification,
-						implemented in NestJS, with JWT authentication and role
-						based access. MongoDB and Prisma used as backend
+						{params.description}
 					</p>
 					<a
 						className="projectLink"
 						target="_blank"
-						href="https://github.com/gearhead041/realworld-nestjs-prisma-mongodb"
+						href= {params.link}
 					>
 						Project Link
 					</a>

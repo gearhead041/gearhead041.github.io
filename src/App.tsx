@@ -10,8 +10,10 @@ import {
 	PythonLogo,
 	TypeScriptLogo,
 } from "./svg_logos";
-import { Project, projects } from "./Project";
+import { Project } from "./Project";
+import { projects } from "./projects";
 
+//TODO here's an idea, put stars and quotes above the header
 function App() {
 	const date = new Date();
 	const scrollRef = useRef<HTMLDivElement>(null);
@@ -29,20 +31,26 @@ function App() {
 					<p className="jobTitle">Backend Developer</p>
 					<p className="date">{date.toDateString()}</p>
 				</div>
+				<div className="thickRule"></div>
 				<div className="logos">
 					<GitHubLogo link="https://github.com/gearhead041" />
 					<GmailLogo link="mailto:favouradetoun@gmail.com" />
 					<LinkedInLogo link="https://www.linkedin.com/in/toluadetoun/" />
 				</div>
 			</div>
-			<div className="blurb">
-				<p>
-					Backend developer with experience in building APIs and
-					microservices. Passionate about creating scalable and
-					maintainable software solutions.
-				</p>
+			<div className="profileSection">
+				<div>
+					<img src="src/assets/headshot.png" alt="A picture of Adetoun Favour" className="profilePic" />
+				</div>
+				<div className="blurb">
+					<p>
+						Backend developer with experience in building APIs and
+						microservices. Passionate about creating scalable and
+						maintainable software solutions.
+					</p>
+				</div>
 			</div>
-			<div className="header skills">Skills/TechStack</div>
+			<div className="header skills">What I Work With</div>
 			<div className="scrollContainer">
 				<div className="scrollContent" ref={scrollRef}>
 					<NestJsLogo size={64} />
@@ -55,8 +63,10 @@ function App() {
 			<div className="projectContainer">
 				<div className="header title" id="projectsTitle">
 					Projects
-				</div>  
-        {projects.map(proj => <Project {...proj}/>)}
+				</div>
+				{projects.map((proj) => (
+					<Project {...proj} />
+				))}
 			</div>
 		</>
 	);
