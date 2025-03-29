@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import "./App.css";
-import headshot from './assets/headshot.png';
+import headshot from "./assets/headshot.png";
 import {
 	GitHubLogo,
 	GmailLogo,
@@ -42,24 +42,26 @@ function App() {
 				</div>
 			</div>
 			<div className="profileSection">
-				<div>
+				<div className="profileTop">
 					<img
 						src={headshot}
 						alt="A picture of Adetoun Favour"
 						className="profilePic"
 					/>
-				</div>
-				<div className="blurb">
-					<p>
-						Backend developer with experience in Data Science.
-						Passionate about creating scalable and maintainable
-						software solutions.
-					</p>
+					<div className="blurb">
+						<p>
+							Backend developer with experience in Data Science.
+							Passionate about creating scalable and maintainable
+							software solutions.
+						</p>
+					</div>
 				</div>
 				<div className="education">
 					<p className="title eduTitle">Education</p>
 					<div className="eduEntries">
-						{education.map(edu => (<Education {...edu}/>))}
+						{education.map((edu) => (
+							<Education {...edu} />
+						))}
 					</div>
 				</div>
 			</div>
@@ -86,4 +88,3 @@ function App() {
 }
 
 export default App;
-

@@ -29,11 +29,13 @@
   }
 
   .profileSection {
-    margin: auto;
+    place-content: center;
+    place-items: center;
+    margin-left: 2rem !important; /*TODO maybe maybe...*/
   }
 
   .blurb {
-    /* Text over flow stuff */
+    /* Text over flow */
     display: -webkit-box;
     -webkit-line-clamp: 4;
     line-clamp: 4;
@@ -113,13 +115,21 @@ p {
 .profileSection {
   padding-top: 1rem;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
   width: var(--headers-width);
   place-self: center;
   margin: auto;
 }
 
+
+.profileTop {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  width: var(--headers-width);
+  place-content: center;
+}
 .profilePic {
   height: var(--picture-height);
   margin-right: 2rem;
