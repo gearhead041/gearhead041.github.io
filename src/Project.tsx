@@ -26,7 +26,8 @@ export function Project(params: projectParams) {
 					<a
 						className="projectLink"
 						target="_blank"
-						href= {params.link}
+						href={params.link}
+						aria-label="Go to project repository"
 					>
 						Project Link
 					</a>

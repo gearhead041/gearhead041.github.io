@@ -31,9 +31,17 @@
   .profileSection {
     place-content: center;
     place-items: center;
-    margin-left: 2rem !important; /*TODO maybe maybe...*/
+    margin-left: 2rem !important;
+  }
+  
+  /*TODO maybe I fix this maybe I don't ...*/
+  .scrollContainer {
+    margin-left: 2rem !important;
   }
 
+  .skills {
+    margin-left: 2rem !important;
+  }
   .blurb {
     /* Text over flow */
     display: -webkit-box;
@@ -130,6 +138,7 @@ p {
   width: var(--headers-width);
   place-content: center;
 }
+
 .profilePic {
   height: var(--picture-height);
   margin-right: 2rem;
@@ -165,7 +174,6 @@ p {
 }
 
 .eduEntries {
-  padding-top: 6rem;
   display: flex;
   flex-direction: column;
 }
