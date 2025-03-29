@@ -22,7 +22,7 @@
   :root {
     --headers-width: 100vw;
     --regular-font-size: 1.2rem;
-    --picture-height: 10rem;
+    --picture-height: 18rem;
     --blurb-width: 10rem;
     --blurb-displace: 1.5rem;
     --pic-radius: 2.5rem;
@@ -37,12 +37,12 @@
   .blurb {
     /* Text over flow */
     display: -webkit-box;
-    -webkit-line-clamp: 4;
-    line-clamp: 4;
+    -webkit-line-clamp: 7;
+    line-clamp: 7;
     overflow: hidden;
     text-overflow: ellipsis;
     -webkit-box-orient: vertical;
-    max-height: 6em;
+    max-height: 10.5em;
     line-height: 1.5em;
   }
 }
