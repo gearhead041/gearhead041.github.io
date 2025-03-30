@@ -1,5 +1,5 @@
 :root {
-  --headers-width: 50vw;
+  --headers-width: 60vw;
   --regular-font-size: 1.5rem;
   --xxlarge-font-size: 6rem;
   --large-font-size: 3rem;
@@ -137,13 +137,13 @@ p {
 }
 
 .profileSection {
-  padding-top: 1rem;
+  padding: 1.2rem;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   width: var(--headers-width);
   place-self: center;
-  /* margin: auto; */
+  border: 0.4rem groove var(--color);
 }
 
 
@@ -151,8 +151,10 @@ p {
   display: flex;
   flex-direction: row;
   gap: 0.5rem;
-  width: var(--headers-width);
+  width: 100%;
   place-content: center;
+  padding-bottom: 2rem;
+  border-bottom: 0.4rem groove var(--color);
 }
 
 .profilePic {
@@ -186,6 +188,7 @@ p {
   width: 40%;
   padding-right: 0.5rem;
   overflow-wrap: break-word;
+  border-right: 0.3rem solid var(--color);
 }
 
 .eduEntries {
@@ -264,13 +267,7 @@ svg {
 .scrollContent {
   display: flex;
   gap: 2rem;
-  animation: scroll 20s linear infinite;
-}
-
-.scrollContent::after {
-  content: "";
-  display: flex;
-  gap: 3rem;
+  animation: scroll 10s linear infinite;
 }
 
 .scrollContent>svg:hover {
@@ -352,6 +349,7 @@ svg {
   display: block;
   font-size: calc(var(--regular-font-size) - 0.1rem);
   padding-bottom: 0.5rem;
+  width: fit-content;
 }
 
 .projectLink:hover {

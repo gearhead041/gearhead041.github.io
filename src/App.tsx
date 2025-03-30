@@ -1,4 +1,3 @@
-import { useEffect, useRef } from "react";
 import "./App.css";
 import headshot from "./assets/headshot.png";
 import {
@@ -19,12 +18,6 @@ import { education } from "./education.1";
 //TODO here's an idea, put stars and quotes above the header
 function App() {
 	const date = new Date();
-	const scrollRef = useRef<HTMLDivElement>(null);
-	useEffect(() => {
-		if (scrollRef.current) {
-			scrollRef.current.innerHTML += scrollRef.current.innerHTML; // Duplicate content
-		}
-	}, []);
 
 	return (
 		<>
@@ -65,14 +58,24 @@ function App() {
 					</div>
 				</div>
 			</div>
-			<div className="header skills">What I've Worked With</div>
+			<div className="header subHeader">
+				<div className="skills">What I've Worked With</div>
+			</div>
 			<div className="scrollContainer">
-				<div className="scrollContent" ref={scrollRef}>
+				<div className="scrollContent">
 					<NestJsLogo size={64} />
 					<TypeScriptLogo size={64} />
 					<NodeJsLogo size={64} />
 					<PythonLogo size={64} />
 					<GraphqlLogo size={64} />
+					<NestJsLogo size={64} />
+					<TypeScriptLogo size={64} />
+					<NodeJsLogo size={64} />
+					<PythonLogo size={64} />
+					<GraphqlLogo size={64} />
+					<NestJsLogo size={64} />
+					<TypeScriptLogo size={64} />
+					<NodeJsLogo size={64} />
 				</div>
 			</div>
 			<div className="projectContainer">
