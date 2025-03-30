@@ -27,12 +27,13 @@ function App() {
 					<p className="jobTitle">Backend Developer</p>
 					<p className="date">{date.toDateString()}</p>
 				</div>
-				<div className="thickRule"></div>
+				<hr className="thickRule"/>
 				<div className="logos">
 					<GitHubLogo link="https://github.com/gearhead041" />
 					<GmailLogo link="mailto:favouradetoun@gmail.com" />
 					<LinkedInLogo link="https://www.linkedin.com/in/toluadetoun/" />
 				</div>
+
 			</div>
 			<div className="profileSection">
 				<div className="profileTop">
