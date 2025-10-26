@@ -12,8 +12,7 @@ import {
 } from "./svg_logos";
 import { Project } from "./Project";
 import { projects } from "./projects";
-import { Education } from "./Education";
-import { education } from "./education.1";
+import { edus, HeroDetail, workExps } from "./experience";
 
 //TODO here's an idea, put stars and quotes above the header
 function App() {
@@ -44,17 +43,25 @@ function App() {
 					/>
 					<div className="blurb">
 						<p>
-							Backend developer with experience in Data Science.
+							Backend developer with experience in Data Science, Agile Development and DevOps.
 							Passionate about creating scalable and maintainable
 							software solutions.
 						</p>
 					</div>
 				</div>
 				<div className="education">
+					<p className="title eduTitle">Work Experience</p>
+					<div className="eduEntries">
+						{workExps.map((workExps) => (
+							<HeroDetail {...workExps} />
+						))}
+					</div>
+				</div>
+				<div className="education">
 					<p className="title eduTitle">Education</p>
 					<div className="eduEntries">
-						{education.map((edu) => (
-							<Education {...edu} />
+						{edus.map((edu) => (
+							<HeroDetail {...edu} />
 						))}
 					</div>
 				</div>

@@ -7,17 +7,17 @@
   --color: black;
   --background-color: rgb(254, 253, 206);
   --picture-height: 20rem;
-  --blurb-width: 25rem;
+  --blurb-width: 35rem;
   --pic-radius: 5rem;
   cursor: crosshair;
 }
 
-/* @media(prefers-color-scheme: dark) {
+@media(prefers-color-scheme: dark) {
   :root {
     --color: rgb(242, 240, 133);
     --background-color: black;
   }
-} */
+}
 
 @media screen and (max-width: 768px) {
   :root {
@@ -36,8 +36,8 @@
   }
 
   .profileSection {
-    place-content: center;
-    place-items: center;
+    /* place-content: center; */
+    /* place-items: center; */
     margin-left: 2rem !important;
   }
 
@@ -163,6 +163,11 @@ p {
   animation: slideUp 2s forwards;
 }
 
+.blurb > p {
+	
+	text-align: end;
+}
+
 .education {
   width: var(--headers-width);
   padding: 2rem;
@@ -170,7 +175,7 @@ p {
   place-items: center;
   gap: 2rem;
   border: 0.3rem solid var(--color);
-
+  margin-bottom: 1.5rem;
 }
 
 .eduTitle {
