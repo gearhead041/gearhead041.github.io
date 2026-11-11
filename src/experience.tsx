@@ -36,8 +36,8 @@ type eduParam = {
 export function HeroDetail(params: eduParam | workExp) {
 
 	return (
-		<div className="edu">
-			{"logo" in params ? <img src={params.logo} /> : <></>}
+		<div className="entry">
+			{"logo" in params && params.logo ? <img src={params.logo} alt="" /> : null}
 			<p className="institute">{params.institute}</p>
 			<p className="degree">{params.title}</p>
 			<p className="schoolyrs">{params.yrs}</p>

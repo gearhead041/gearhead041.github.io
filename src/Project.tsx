@@ -9,33 +9,36 @@ export type projectParams = {
 };
 
 const logoDict: { [key: string]: JSX.Element } = {
-	NestJs: <NestJsLogo size={40} />,
-	Typescript: <TypeScriptLogo size={40} />,
-	Python: <PythonLogo size={40} />,
+	NestJs: <NestJsLogo size={22} />,
+	Typescript: <TypeScriptLogo size={22} />,
+	Python: <PythonLogo size={22} />,
 };
 
 export function Project(params: projectParams) {
 	return (
-		<>
-			<div className="project">
-				<div className="projectText">
-					<p className="projectTitle">{params.projectTitle}</p>
-					<p className="projectDescription">
-						{params.description}
-					</p>
-					<a
-						className="projectLink"
-						target="_blank"
-						href={params.link}
-						aria-label="Go to project repository"
-					>
-						Project Link
-					</a>
-					<div className="projectStack">
-						{params.stack.map((stack) => logoDict[stack])}
-					</div>
-				</div>
+		<article className="project">
+			<h3 className="projectTitle">{params.projectTitle}</h3>
+			<p className="projectDescription">
+				<span className="dateline">GitHub —</span> {params.description}
+			</p>
+			<a
+				className="projectLink"
+				target="_blank"
+				rel="noreferrer"
+				href={params.link}
+				aria-label={`Go to ${params.projectTitle} repository`}
+			>
+				Continued at the repository →
+			</a>
+			<div className="projectStack">
+				<span className="filedUnder">Filed under:</span>
+				{params.stack.map((stack) => (
+					<span className="stackTag" key={stack}>
+						{logoDict[stack]}
+						{stack}
+					</span>
+				))}
 			</div>
-		</>
+		</article>
 	);
 }
