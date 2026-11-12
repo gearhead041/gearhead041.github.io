@@ -4,7 +4,6 @@ import headshot from "./assets/headshot.png";
 import {
 	GitHubLogo,
 	GmailLogo,
-	GraphqlLogo,
 	LinkedInLogo,
 	NestJsLogo,
 	NodeJsLogo,
