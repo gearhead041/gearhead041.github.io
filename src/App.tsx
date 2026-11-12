@@ -12,6 +12,7 @@ import {
 	TypeScriptLogo,
 } from "./svg_logos";
 import { Project } from "./Project";
+import { Certifications } from "./Certifications";
 import { projects } from "./projects";
 import { edus, HeroDetail, workExps } from "./experience";
 
@@ -193,6 +194,8 @@ function App() {
 						))}
 					</div>
 				</section>
+
+				<Certifications />
 			</main>
 
 			<footer className="colophon">

@@ -555,17 +555,62 @@ svg {
 .project {
   display: flex;
   flex-direction: column;
-  padding: 0 var(--gutter);
+  padding: 0 var(--gutter) 1.25rem;
   border-left: 1px solid var(--rule);
 }
 
-.project:first-child {
+/* three per row: first in each row has no left rule, last has no right padding */
+.project:nth-child(3n + 1) {
   padding-left: 0;
   border-left: none;
 }
 
-.project:last-child {
+.project:nth-child(3n) {
   padding-right: 0;
+}
+
+.project {
+  position: relative;
+}
+
+.project:nth-child(n + 4) {
+  padding-top: 1.25rem;
+}
+
+/* Horizontal rule between rows: the first card of every row after the first
+   draws a line 3 columns wide above its row, so it spans the full grid even
+   when the last row has only one or two cards. (Grid has no gap, so the first
+   card's box is exactly one third of the grid width.) */
+.project:nth-child(3n + 1):nth-child(n + 4)::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 300%;
+  height: 0;
+  /* a border (not a 1px background) so it snaps to device pixels exactly like
+     the vertical column rules and renders at the same thickness */
+  border-top: 1px solid var(--rule);
+}
+
+/* Close off a partial last row with a rule on the right of its last card.
+   Drawn just outside the card's right edge (where the next card's border-left
+   would sit) so it lines up exactly with the other column rules. */
+.project:last-child:not(:nth-child(3n))::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: -1px;
+  width: 0;
+  border-left: 1px solid var(--rule);
+}
+
+.projectNote {
+  margin-top: 0.7rem;
+  font-style: italic;
+  font-size: 0.92rem;
+  color: var(--ink-faded);
 }
 
 .projectTitle {
@@ -630,6 +675,161 @@ svg {
   font-family: var(--font-caps);
 }
 
+/* ───────────── Advertisements (certifications) ───────────── */
+
+.ads {
+  margin-top: 2rem;
+}
+
+.adGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-auto-flow: dense;
+  gap: 0.9rem;
+  margin-top: 1rem;
+}
+
+.ad {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 1rem 0.9rem;
+  border: 2px solid var(--rule);
+  text-align: center;
+}
+
+.ad--wide {
+  grid-column: span 2;
+}
+
+.adKicker {
+  font-family: var(--font-caps);
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.adTitle {
+  font-family: var(--font-headline);
+  font-weight: 900;
+  font-size: 1.2rem;
+  line-height: 1.15;
+  text-wrap: balance;
+}
+
+.adIssuer {
+  font-family: var(--font-headline);
+  font-style: italic;
+  font-size: 1rem;
+}
+
+.adBy {
+  font-family: var(--font-caps);
+  font-style: normal;
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  color: var(--ink-faded);
+}
+
+.adDate {
+  font-family: var(--font-caps);
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  padding: 0.1rem 0.6rem;
+  border-top: 1px solid currentColor;
+  border-bottom: 1px solid currentColor;
+}
+
+.adId {
+  font-size: 0.72rem;
+  color: var(--ink-faded);
+  letter-spacing: 0.04em;
+  overflow-wrap: anywhere;
+}
+
+/* Big reversed display ad */
+.ad--feature {
+  grid-column: span 2;
+  grid-row: span 2;
+  background: var(--ink);
+  color: var(--paper);
+  border-color: var(--ink);
+  box-shadow:
+    inset 0 0 0 5px var(--ink),
+    inset 0 0 0 6px var(--paper);
+  padding: 2rem 1.5rem;
+}
+
+.ad--feature .adKicker {
+  font-size: 1rem;
+  letter-spacing: 0.25em;
+}
+
+.ad--feature .adTitle {
+  font-size: clamp(1.8rem, 3.6vw, 2.8rem);
+  line-height: 1.05;
+}
+
+.ad--feature .adIssuer {
+  font-size: 1.6rem;
+}
+
+.ad--feature .adBy,
+.ad--feature .adId {
+  color: inherit;
+  opacity: 0.75;
+}
+
+.ad--feature .adDate {
+  font-size: 0.95rem;
+  margin-top: 0.4rem;
+}
+
+/* Double-ruled box */
+.ad--double {
+  border: 5px double var(--rule);
+}
+
+/* Clip-out coupon */
+.ad--coupon {
+  border: 2px dashed var(--rule);
+}
+
+.ad--coupon::before {
+  content: "✂";
+  position: absolute;
+  top: -0.8em;
+  left: 0.9rem;
+  padding: 0 0.25rem;
+  background: var(--paper);
+  font-size: 1.1rem;
+  line-height: 1.4;
+}
+
+/* Ornamental notice with fleurons */
+.ad--ornate {
+  border-width: 1px;
+  outline: 1px solid var(--rule);
+  outline-offset: 3px;
+  margin: 4px;
+}
+
+.ad--ornate .adKicker::before,
+.ad--ornate .adKicker::after {
+  content: "❦";
+  margin: 0 0.4em;
+  letter-spacing: 0;
+}
+
+/* Plain classified with heavy top bar */
+.ad--plain {
+  border-width: 1px;
+  border-top-width: 6px;
+}
+
 /* ───────────── Footer ───────────── */
 
 .colophon {
@@ -673,11 +873,28 @@ svg {
   }
 
   .project,
-  .project:first-child,
-  .project:last-child {
+  .project:nth-child(3n + 1),
+  .project:nth-child(3n),
+  .project:nth-child(n + 4) {
     padding: 1rem 0;
     border-left: none;
     border-top: 1px solid var(--rule);
+  }
+
+  .project:nth-child(3n + 1):nth-child(n + 4)::before {
+    display: none;
+  }
+
+  .project:last-child:not(:nth-child(3n))::after {
+    display: none;
+  }
+
+  .adGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .ad--feature {
+    grid-row: auto;
   }
 
   .project:first-child {
@@ -721,6 +938,15 @@ svg {
 
   .sectionHead span {
     font-size: 2.1rem;
+  }
+
+  .adGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .ad--wide,
+  .ad--feature {
+    grid-column: auto;
   }
 }
 
@@ -780,52 +1006,63 @@ svg {
   to { transform: scaleY(1); }
 }
 
-.themeBar { animation: fadeIn 0.6s ease 0.1s both; }
-.nameplate { animation: inkIn 1.2s cubic-bezier(0.2, 0.7, 0.2, 1) 0.1s both; }
-.ear { animation: slideFromLeft 0.7s ease-out 0.7s both; }
+/* Whole sequence finishes by 1.5s. Comments show when each piece ends. */
+
+.themeBar { animation: fadeIn 0.3s ease 0s both; }                                  /* 0.3 */
+.nameplate { animation: inkIn 0.6s cubic-bezier(0.2, 0.7, 0.2, 1) 0s both; }        /* 0.6 */
+.ear { animation: slideFromLeft 0.4s ease-out 0.2s both; }                          /* 0.6 */
 .earRight { animation-name: slideFromRight; }
-.editionBar { animation: openFromCentre 0.8s ease-in-out 0.9s both; }
+.editionBar { animation: openFromCentre 0.4s ease-in-out 0.3s both; }               /* 0.7 */
 
-.kicker { animation: fadeIn 0.6s ease 1.2s both; }
-.headline { animation: fadeUp 0.8s ease-out 1.3s both; }
-.deck { animation: fadeIn 0.8s ease 1.6s both; }
-.byline { animation: openFromCentre 0.7s ease-in-out 1.75s both; }
+.kicker { animation: fadeIn 0.3s ease 0.35s both; }                                 /* 0.65 */
+.headline { animation: fadeUp 0.4s ease-out 0.4s both; }                            /* 0.8 */
+.deck { animation: fadeIn 0.4s ease 0.5s both; }                                    /* 0.9 */
+.byline { animation: openFromCentre 0.35s ease-in-out 0.55s both; }                 /* 0.9 */
 
-.photo img { animation: printDown 1.4s ease-in-out 1.9s both; }
-.photo figcaption { animation: fadeIn 0.6s ease 3s both; }
+.photo img { animation: printDown 0.6s ease-in-out 0.6s both; }                     /* 1.2 */
+.photo figcaption { animation: fadeIn 0.3s ease 1s both; }                          /* 1.3 */
 /* story paragraphs + pull quote rise in one after another
    (storyBody children: 1 photo, 2 p, 3 p, 4 quote, 5 p) */
 .storyBody > p,
-.pullQuote { animation: fadeUp 0.8s ease-out both; }
-.storyBody > :nth-child(2) { animation-delay: 2s; }
-.storyBody > :nth-child(3) { animation-delay: 2.2s; }
-.storyBody > :nth-child(4) { animation-delay: 2.4s; }
-.storyBody > :nth-child(5) { animation-delay: 2.6s; }
+.pullQuote { animation: fadeUp 0.4s ease-out both; }
+.storyBody > :nth-child(2) { animation-delay: 0.65s; }
+.storyBody > :nth-child(3) { animation-delay: 0.75s; }
+.storyBody > :nth-child(4) { animation-delay: 0.85s; }
+.storyBody > :nth-child(5) { animation-delay: 0.95s; }                             /* 1.35 */
 
 .leadStory::after {
   transform-origin: top;
-  animation: drawDown 1.1s ease-in-out 1.3s both;
+  animation: drawDown 0.6s ease-in-out 0.4s both;                                  /* 1.0 */
 }
 
 .frontPage::after {
   transform-origin: left;
-  animation: drawAcross 1.2s ease-in-out 2s both;
+  animation: drawAcross 0.6s ease-in-out 0.8s both;                                /* 1.4 */
 }
 
-.notice { animation: fadeUp 0.7s ease-out both; }
-.notice:nth-child(1) { animation-delay: 1.5s; }
-.notice:nth-child(2) { animation-delay: 1.7s; }
-.notice:nth-child(3) { animation-delay: 1.9s; }
+.notice { animation: fadeUp 0.4s ease-out both; }
+.notice:nth-child(1) { animation-delay: 0.5s; }
+.notice:nth-child(2) { animation-delay: 0.6s; }
+.notice:nth-child(3) { animation-delay: 0.7s; }                                    /* 1.1 */
 
-.ticker { animation: wipeRight 1s ease-in-out 2.4s both; }
-.sectionHead { animation: openFromCentre 0.8s ease-in-out 2.7s both; }
+.ticker { animation: wipeRight 0.5s ease-in-out 0.9s both; }                       /* 1.4 */
+.sectionHead { animation: openFromCentre 0.4s ease-in-out 1s both; }               /* 1.4 */
 
-.project { animation: fadeUp 0.7s ease-out both; }
-.project:nth-child(1) { animation-delay: 2.9s; }
-.project:nth-child(2) { animation-delay: 3.05s; }
-.project:nth-child(3) { animation-delay: 3.2s; }
+.project { animation: fadeUp 0.4s ease-out both; }
+.project:nth-child(1) { animation-delay: 0.95s; }
+.project:nth-child(2) { animation-delay: 0.98s; }
+.project:nth-child(3) { animation-delay: 1.01s; }
+.project:nth-child(4) { animation-delay: 1.04s; }
+.project:nth-child(5) { animation-delay: 1.07s; }
+.project:nth-child(6) { animation-delay: 1.1s; }                                   /* 1.5 */
+.project:nth-child(n + 7) { animation-delay: 1.1s; }
 
-.colophon { animation: fadeIn 1s ease 3.4s both; }
+.ads .sectionHead { animation-delay: 1.05s; }                                      /* 1.45 */
+.ad { animation: fadeUp 0.4s ease-out 1.05s both; }
+.ad:nth-child(2n) { animation-delay: 1.08s; }
+.ad:nth-child(3n) { animation-delay: 1.1s; }                                       /* 1.5 */
+
+.colophon { animation: fadeIn 0.4s ease 1.1s both; }                               /* 1.5 */
 
 @media (prefers-reduced-motion: reduce) {
   *,
