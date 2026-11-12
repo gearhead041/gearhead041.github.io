@@ -10,6 +10,7 @@ import {
 	NodeJsLogo,
 	PythonLogo,
 	TypeScriptLogo,
+	CSharpLogo,
 } from "./svg_logos";
 import { Project } from "./Project";
 import { Certifications } from "./Certifications";
@@ -39,7 +40,8 @@ const tickerItems = [
 	{ name: "TypeScript", logo: <TypeScriptLogo size={28} /> },
 	{ name: "Node.js", logo: <NodeJsLogo size={28} /> },
 	{ name: "Python", logo: <PythonLogo size={28} /> },
-	{ name: "GraphQL", logo: <GraphqlLogo size={28} /> },
+	// { name: "GraphQL", logo: <GraphqlLogo size={28} /> },
+	{ name: ".NET", logo: <CSharpLogo size={28} /> },
 ];
 
 function editionInfo(date: Date) {
