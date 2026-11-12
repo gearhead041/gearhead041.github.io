@@ -174,7 +174,7 @@ function App() {
 							<div className="logos">
 								<GitHubLogo link="https://github.com/gearhead041" />
 								<GmailLogo link="mailto:favouradetoun@gmail.com" />
-								<LinkedInLogo link="https://www.linkedin.com/in/toluadetoun/" />
+								<LinkedInLogo link="https://www.linkedin.com/in/favouradetoun" />
 							</div>
 						</section>
 					</aside>
