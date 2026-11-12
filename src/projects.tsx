@@ -21,7 +21,7 @@ export const projects: projectParams[] = [
 		projectTitle: "Retail and SME Onboarding Optimization on Mobile App",
 		source: "Stanbic IBTC",
 		description:
-			"Optimized the retail and SME onboarding experience on the mobile app improving customer experience and reducing the number of support tickets.",
+			"Optimized the retail and SME onboarding experience on the mobile app, improving customer experience and reducing the number of support tickets.",
 		note: "Proprietary work for Stanbic IBTC.",
 		stack: [".NET"],
 	},
@@ -36,7 +36,7 @@ export const projects: projectParams[] = [
 	{
 		projectTitle: "Blog API",
 		description:
-			"A Blog API based on the realworld conduit specification,implemented in NestJS, with JWT authentication and rolebased access. MongoDB and Prisma used as backend",
+			"A Blog API based on the realworld conduit specification, implemented in NestJS with JWT authentication and rolebased access. MongoDB and Prisma used as backend",
 		link: "https://github.com/gearhead041/realworld-nestjs-prisma-mongodb",
 		stack: ["NestJs", "Typescript"],
 	},
