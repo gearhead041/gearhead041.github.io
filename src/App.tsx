@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
 import "./App.css";
+import { useIsClient, useTheme } from "./clientState";
 import headshot from "./assets/headshot.png";
 import {
 	GitHubLogo,
@@ -41,42 +41,27 @@ const tickerItems = [
 	{ name: "GraphQL", logo: <GraphqlLogo size={28} /> },
 ];
 
-type Theme = "light" | "dark";
-
-function getInitialTheme(): Theme {
-	const set = document.documentElement.dataset.theme;
-	if (set === "light" || set === "dark") return set;
-	return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+function editionInfo(date: Date) {
+	return {
+		volume: toRoman(date.getFullYear() - FIRST_YEAR + 1),
+		dayOfYear: Math.floor(
+			(date.getTime() - new Date(date.getFullYear(), 0, 0).getTime()) / 86_400_000,
+		),
+		longDate: date.toLocaleDateString("en-GB", {
+			weekday: "long",
+			day: "numeric",
+			month: "long",
+			year: "numeric",
+		}),
+		year: date.getFullYear(),
+	};
 }
 
 function App() {
-	const [theme, setTheme] = useState<Theme>(getInitialTheme);
-
-	useEffect(() => {
-		document.documentElement.dataset.theme = theme;
-	}, [theme]);
-
-	const toggleTheme = () => {
-		const next: Theme = theme === "dark" ? "light" : "dark";
-		setTheme(next);
-		try {
-			localStorage.setItem("theme", next);
-		} catch {
-			/* storage unavailable — theme still applies for this visit */
-		}
-	};
-
-	const date = new Date();
-	const volume = toRoman(date.getFullYear() - FIRST_YEAR + 1);
-	const dayOfYear = Math.floor(
-		(date.getTime() - new Date(date.getFullYear(), 0, 0).getTime()) / 86_400_000,
-	);
-	const longDate = date.toLocaleDateString("en-GB", {
-		weekday: "long",
-		day: "numeric",
-		month: "long",
-		year: "numeric",
-	});
+	const [theme, toggleTheme] = useTheme();
+	// "Today" only exists in the browser; the prerendered HTML leaves it blank.
+	const isClient = useIsClient();
+	const edition = isClient ? editionInfo(new Date()) : null;
 
 	return (
 		<div className="paper">
@@ -103,8 +88,8 @@ function App() {
 					</div>
 				</div>
 				<div className="editionBar">
-					<span>Vol. {volume} · No. {dayOfYear}</span>
-					<span className="editionDate">{longDate}</span>
+					<span>{edition ? `Vol. ${edition.volume} · No. ${edition.dayOfYear}` : " "}</span>
+					<span className="editionDate">{edition ? edition.longDate : " "}</span>
 					<span>Price: One Pull Request</span>
 				</div>
 			</header>
@@ -211,7 +196,7 @@ function App() {
 			</main>
 
 			<footer className="colophon">
-				Printed &amp; published by Adetoun Favour · © {date.getFullYear()} · Est.{" "}
+				Printed &amp; published by Adetoun Favour · {edition && `© ${edition.year} · `}Est.{" "}
 				{FIRST_YEAR}
 			</footer>
 		</div>

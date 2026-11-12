@@ -3,9 +3,58 @@
 
 <head>
   <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="/newspaper.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Adetoun Favour</title>
+  <title>Adetoun Favour — Backend Developer</title>
+  <meta name="description"
+    content="Adetoun Favour is a backend developer and Software Engineer at Stanbic IBTC with experience in Data Science, Agile Development and DevOps, building scalable, maintainable software with NestJS, TypeScript, Node.js and Python." />
+  <meta name="author" content="Adetoun Favour" />
+  <link rel="canonical" href="https://gearhead041.github.io/" />
+  <link rel="icon" type="image/svg+xml" href="/newspaper.svg" />
+
+  <!-- Open Graph / link previews -->
+  <meta property="og:type" content="profile" />
+  <meta property="og:site_name" content="Adetoun Favour" />
+  <meta property="og:title" content="Adetoun Favour — Backend Developer" />
+  <meta property="og:description"
+    content="Backend developer with experience in Data Science, Agile Development and DevOps. Passionate about creating scalable and maintainable software solutions." />
+  <meta property="og:url" content="https://gearhead041.github.io/" />
+  <meta property="og:image" content="https://gearhead041.github.io/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="The front page of Adetoun Favour's newspaper-style portfolio" />
+  <meta property="profile:first_name" content="Favour" />
+  <meta property="profile:last_name" content="Adetoun" />
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Adetoun Favour — Backend Developer" />
+  <meta name="twitter:description"
+    content="Backend developer with experience in Data Science, Agile Development and DevOps." />
+  <meta name="twitter:image" content="https://gearhead041.github.io/og-image.png" />
+
+  <!-- Structured data: who this site is about -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Adetoun Favour",
+    "url": "https://gearhead041.github.io/",
+    "image": "https://gearhead041.github.io/og-image.png",
+    "jobTitle": "Software Engineer",
+    "description": "Backend developer with experience in Data Science, Agile Development and DevOps.",
+    "worksFor": { "@type": "Organization", "name": "Stanbic IBTC" },
+    "alumniOf": [
+      { "@type": "CollegeOrUniversity", "name": "University of Edinburgh" },
+      { "@type": "CollegeOrUniversity", "name": "Covenant University" }
+    ],
+    "knowsAbout": ["Backend development", "NestJS", "TypeScript", "Node.js", "Python", "GraphQL", "Data Science", "DevOps"],
+    "sameAs": [
+      "https://github.com/gearhead041",
+      "https://www.linkedin.com/in/toluadetoun/"
+    ]
+  }
+  </script>
+
   <script>
     // Apply a saved theme before first paint to avoid a flash of the wrong colours
     try {
@@ -13,24 +62,27 @@
       if (t === "light" || t === "dark") document.documentElement.dataset.theme = t;
     } catch (e) {}
   </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
     href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Playfair+Display:ital,wght@0,700;0,900;1,400;1,700&family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=IM+Fell+English+SC&display=swap"
     rel="stylesheet">
-</head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-K2G1LF8W47"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'G-K2G1LF8W47');
-</script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-K2G1LF8W47"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-K2G1LF8W47');
+  </script>
+</head>
+
 <body>
   <div id="root"></div>
+  <script type="module" src="/src/main.tsx"></script>
 </body>
-<script type="module" src="/src/main.tsx"></script>
 
 </html>
